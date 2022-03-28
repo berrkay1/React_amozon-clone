@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css';
+import { Link } from 'react-router-dom';
 // icons
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import StorefrontIcon from '@material-ui/icons/Storefront';
@@ -9,10 +10,15 @@ import SearchIcon from '@material-ui/icons/Search';
 function Header() {
     return (
         <div className="header">
+
+            <Link to='/' style={{textDecoration:'none'}}>
             <div className="header-logo">
                 <StorefrontIcon className='logo' fontSize='large' />
                 <h2 className="logo-title">Amazon</h2>
             </div>
+            </Link>
+
+            
 
             <div className="header-search">
                 <input type="text" className='search' />
@@ -28,10 +34,13 @@ function Header() {
                     <span className="nav-itemLineOne">Your</span>
                     <span className="nav-itemLineTwo">Shop</span>
                 </div>
-                <div className="nav-item">
-                    <ShoppingBasketIcon className='nav-basket' />
+                <Link to='checkout' className='link nav-basket' style={{textDecoration:'none'}}  >
+                
+                    <ShoppingBasketIcon  />
                     <span className="nav-itemLineTwo nav-count">0</span>
-                </div>
+                
+                </Link>
+                
             </div>
         </div>
     )
