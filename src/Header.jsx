@@ -6,8 +6,12 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import SearchIcon from '@material-ui/icons/Search';
 
+import {useStateValue} from './StateContext';
 
 function Header() {
+
+    const [{basket},dispatch] = useStateValue();
+
     return (
         <div className="header">
 
@@ -37,7 +41,7 @@ function Header() {
                 <Link to='checkout' className='link nav-basket' style={{textDecoration:'none'}}  >
                 
                     <ShoppingBasketIcon  />
-                    <span className="nav-itemLineTwo nav-count">0</span>
+                    <span className="nav-itemLineTwo nav-count">{basket.length}</span>
                 
                 </Link>
                 
